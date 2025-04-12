@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600&display=swap');
+
+body {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f5f5f7;
+    margin: 0;
+    padding: 20px;
+    color: #1d1d1f;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+    text-align: center;
+    color: #1d1d1f;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.input-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #d2d2d7;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    background: #f5f5f7;
+    transition: border-color 0.3s, background 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #007aff;
+    background: white;
+}
+
+button {
+    padding: 12px 20px;
+    background: #007aff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background 0.3s, transform 0.1s;
+}
+
+button:hover {
+    background: #005bb5;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button.reset {
+    background: #d2d2d7;
+    color: #1d1d1f;
+}
+
+button.reset:hover {
+    background: #c6c6cc;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    margin: 5px 0;
+    background: #f5f5f7;
+    border-radius: 10px;
+    border: 1px solid #e5e5ea;
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.task:hover {
+    background: #ececf1;
+}
+
+.task.done {
+    text-decoration: line-through;
+    color: #86868b;
+    background: #e5e5ea;
+}
+
+.task span {
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.task button {
+    background: #ff3b30;
+    padding: 6px 12px;
+    font-size: 14px;
+}
+
+.task button:hover {
+    background: #d32f2f;
+}
+
+@media (max-width: 500px) {
+    .input-container {
+        flex-direction: column;
+    }
+    input[type="text"], button {
+        width: 100%;
+    }
+}
