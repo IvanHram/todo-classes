@@ -16,6 +16,7 @@ class TaskManager {
     constructor() {
         this.tasks = this.loadTasks();
         this.render(); 
+        this.bindEvents()
     }
     addTask() {
         const input = document.getElementById('taskInput');
@@ -27,6 +28,14 @@ class TaskManager {
             this.saveTasks();
             this.render();
         }
+    }
+    bindEvents(){
+        const input = document.getElementById('taskInput');
+        input.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                this.addTask();
+            }
+        })
     }
     removeTask(id) {
         this.tasks = this.tasks.filter(task => task.id !== id);
@@ -54,8 +63,7 @@ class TaskManager {
         if (savedTasks) {
             const parsedTasks = JSON.parse(savedTasks);
             return parsedTasks.map(task => {
-                const newTask = new Task(task.id, task.text, task.done);
-                return newTask;
+                return new Task(task.id, task.text, task.done);
             });
         }
         return [];
